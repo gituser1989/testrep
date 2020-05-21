@@ -4,7 +4,7 @@ pipeline {
     }
     tools {
         // Note: this should match with the tool name configured in your jenkins instance (JENKINS_URL/configureTools/)
-        maven "Maven"
+        maven "maven"
     }
     environment {
         // This can be nexus3 or nexus2
@@ -14,7 +14,7 @@ pipeline {
         // Where your Nexus is running
         NEXUS_URL = "localhost:8081"
         // Repository where we will upload the artifact
-        NEXUS_REPOSITORY = "testproject"
+        NEXUS_REPOSITORY = "testproject2"
         // Jenkins credential id to authenticate to Nexus OSS
         NEXUS_CREDENTIAL_ID = "NexusCredentials"
     }
@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     // Let's clone the source
-                    git 'https://github.com/prasad9898/testproject.git';
+                    git 'https://github.com/gituser1989/testrep.git';
                 }
             }
         }
@@ -88,12 +88,12 @@ pipeline {
                 }
             }
         }
-stage ('deploy'){
-   steps {
-	script {
-      bat ''' D:\\Laptop\\Software\\curl-7.68.0-win64-mingw\\bin\\curl http://localhost:8081/repository/testproject/com/javatpoint/CubeGeneratorWeb/12/CubeGeneratorWeb-12.war -o D:\\Laptop\\Software\\Tomcat\\apache-tomcat-8.5.51\\webapps\\testproject.war'''
-	}
-	}
-	}
+//stage ('deploy'){
+   //steps {
+	//script {
+      ////bat ''' D:\\Laptop\\Software\\curl-7.68.0-win64-mingw\\bin\\curl http://localhost:8181/repository/testproject/com/javatpoint/CubeGeneratorWeb/12/CubeGeneratorWeb-12.war -o D:\\Laptop\\Software\\Tomcat\\apache-tomcat-8.5.51\\webapps\\testproject.war'''
+	//}
+	//}
+	//}
     }
 }
